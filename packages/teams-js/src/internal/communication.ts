@@ -29,7 +29,7 @@ import {
   tryPolyfillWithNestedAppAuthBridge,
 } from './nestedAppAuthUtils';
 import { getLogger, isFollowingApiVersionTagFormat } from './telemetry';
-import { ssrSafeWindow } from './utils';
+import { getCurrentTimestamp, ssrSafeWindow } from './utils';
 import { UUID as MessageUUID } from './uuidObject';
 import { validateOrigin } from './validOrigins';
 
@@ -997,7 +997,7 @@ function createMessageRequest(
     id: messageId,
     uuid: messageUuid,
     func: func,
-    timestamp: Date.now(),
+    timestamp: getCurrentTimestamp(),
     args: args || [],
     apiVersionTag: apiVersionTag,
   };
@@ -1022,7 +1022,7 @@ function createNestedAppAuthRequest(message: string): NestedAppAuthRequest {
     id: messageId,
     uuid: messageUuid,
     func: 'nestedAppAuth.execute',
-    timestamp: Date.now(),
+    timestamp: getCurrentTimestamp(),
     // Since this is a nested app auth request, we don't need to send any args.
     // We avoid overloading the args array with the message to avoid potential issues processing of these messages on the hubSDK.
     args: [],
