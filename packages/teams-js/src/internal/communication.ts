@@ -1015,7 +1015,8 @@ function createMessageRequest(
     id: messageId,
     uuid: messageUuid,
     func: func,
-    timestamp: getCurrentTimestamp(),
+    timestamp: Date.now(),
+    monotonicTimestamp: getCurrentTimestamp(),
     args: args || [],
     apiVersionTag: apiVersionTag,
   };
@@ -1040,7 +1041,8 @@ function createNestedAppAuthRequest(message: string): NestedAppAuthRequest {
     id: messageId,
     uuid: messageUuid,
     func: 'nestedAppAuth.execute',
-    timestamp: getCurrentTimestamp(),
+    timestamp: Date.now(),
+    monotonicTimestamp: getCurrentTimestamp(),
     // Since this is a nested app auth request, we don't need to send any args.
     // We avoid overloading the args array with the message to avoid potential issues processing of these messages on the hubSDK.
     args: [],
