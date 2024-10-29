@@ -21,7 +21,7 @@ export default [
       format: 'es',
       preserveModules: true,
       entryFileNames: '[name].js',
-      sourcemap: false,
+      sourcemap: true,
       plugins: [terser()],
       globals: {
         buffer: 'Buffer',

@@ -48,7 +48,7 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [
       new TerserPlugin({
         terserOptions: {
@@ -63,7 +63,7 @@ module.exports = {
     nodeEnv: 'production',
   },
   // webpack.production.config.js
-  mode: 'production',
+  mode: 'development',
   performance: {
     hints: false,
   },

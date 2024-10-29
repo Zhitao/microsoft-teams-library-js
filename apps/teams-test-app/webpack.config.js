@@ -11,6 +11,7 @@ module.exports = merge(commonConfig, {
     path: path.resolve(__dirname, 'build'),
     filename: 'indexBundle.js',
   },
+  devtool: 'source-map',
   plugins: [
     new HtmlWebPackPlugin({ template: './index_bundle.html', filename: 'index.html' }),
     new CopyWebpackPlugin({ patterns: [{ from: './src/public' }] }),
